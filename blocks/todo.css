@@ -74,6 +74,11 @@
   content: "Delete";
 }
 
+.todo__delete-btn:hover,
+.todo__completed:hover {
+  cursor: pointer; /* Pointer cursor on hover */
+}
+
 @media screen and (max-width: 630px) {
   .todo__label {
     display: grid;
