@@ -16,10 +16,6 @@ class Popup {
   }
 
   setEventListeners() {
-    this._popupCloseBtn.addEventListener("click", () => {
-      this.close();
-    });
-
     this._popupElement.addEventListener("mousedown", (evt) => {
       // Check if the clicked target is the close button or the background (popup itself)
       if (

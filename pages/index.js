@@ -16,7 +16,7 @@ const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
 function handleCheck(completed) {
-  todoCounter.updateCompleted(event.target.checked);
+  todoCounter.updateCompleted(completed);
 }
 
 function handleDelete(completed) {

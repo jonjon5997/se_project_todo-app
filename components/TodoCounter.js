@@ -11,14 +11,17 @@ class TodoCounter {
   // Call this when a checkbox is clicked, and when a completed
   // to-do is deleted.
   updateCompleted = (increment) => {
-    this._completed += increment ? 1 : -1;
+    this._completed = Math.max(0, this._completed + (increment ? 1 : -1));
     this._updateText();
   };
 
   // Call this when a to-do is deleted, or when a to-do is
   // created via the form.
-  updateTotal = (increment) => {
-    this._total += increment ? 1 : -1;
+  updateTotal = (increment, isCompleted = false) => {
+    this._total = Math.max(0, this._total + (increment ? 1 : -1));
+    if (!increment && isCompleted) {
+      this.updateCompleted(false); // Decrease completed count when a completed todo is deleted
+    }
     this._updateText();
   };
 
