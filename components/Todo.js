@@ -1,17 +1,22 @@
 class Todo {
-  constructor(data, selector) {
+  constructor(data, selector, handleCheck, handleDelete) {
     this._data = data;
     this._templateElement = document.querySelector(selector);
+    this._handleCheck = handleCheck;
+    this._handleDelete = handleDelete;
   }
 
   _setEventListeners() {
     // Event listener for checkbox change to toggle completed status
     this._todoCheckboxEl.addEventListener("change", () => {
       this._data.completed = !this._data.completed;
+      this._toggleCompleted();
+      this._handleCheck(this._completed);
     });
 
     // Event listener for delete button to remove the to-do item
     this._todoDeleteBtn.addEventListener("click", () => {
+      this._handleDelete(this._completed);
       this._todoElement.remove();
     });
   }
