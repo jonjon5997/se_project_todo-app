@@ -1,9 +1,6 @@
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
-
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
-
-//import
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../components/PopupWithForm.js";
@@ -16,19 +13,12 @@ const addTodoCloseBtn = addTodoPopupEl.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 //instantiate
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
-
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
 function handleCheck(completed) {
   todoCounter.updateCompleted(event.target.checked);
-  // todoCounter.updateTotal(true);
 }
 
-// function handleDelete(completed) {
-//   if (completed) {
-//     todoCounter.updateCompleted(true);
-//   }
-// }
 function handleDelete(completed) {
   if (completed) {
     todoCounter.updateCompleted(false); // Decrease completed count when deleting a completed to-do
