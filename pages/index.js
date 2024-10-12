@@ -21,14 +21,19 @@ const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
 function handleCheck(completed) {
   todoCounter.updateCompleted(event.target.checked);
-  updateTotal(true);
+  // todoCounter.updateTotal(true);
 }
 
+// function handleDelete(completed) {
+//   if (completed) {
+//     todoCounter.updateCompleted(true);
+//   }
+// }
 function handleDelete(completed) {
   if (completed) {
-    todoCounter.updateCompleted(false);
-    updateTotal(true);
+    todoCounter.updateCompleted(false); // Decrease completed count when deleting a completed to-do
   }
+  todoCounter.updateTotal(false); // Always decrease total count when deleting
 }
 
 // The logic in this function should all be handled in the Todo class.
@@ -66,7 +71,7 @@ const addTodoPopup = new PopupWithForm({
     const todo = generateTodo(values); // Generate the todo item
     section.addItem(todo); // Add the todo item to the section
     addTodoPopup.close(); // Close the popup
-
+    todoCounter.updateTotal(true);
     newTodoValidator.resetValidation(); // Reset form validation
   },
 });
