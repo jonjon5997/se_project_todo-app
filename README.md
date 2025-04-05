@@ -31,4 +31,4 @@ This combination of technologies enables the creation of a robust, interactive, 
 
 This project is deployed on GitHub Pages:
 
-- ADD LINK HERE
+https://jonjon5997.github.io/se_project_todo-app/
